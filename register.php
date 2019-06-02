@@ -44,7 +44,10 @@
     <form id="registerForm" action="register.php" method="POST">
       <h2>Create a free account</h2>
       <p>
-        <p><?php echo $account->getError(Constants::$usernameCharacters); ?></p>
+        <p>
+          <?php echo $account->getError(Constants::$usernameCharacters); ?>
+          <?php echo $account->getError(Constants::$usernameTaken); ?>
+        </p>
         <label for="username">Username</label>
         <input id="username" name="username" type="text" placeholder="username" value="<?php getInputValue('username'); ?>" required />
       </p>
@@ -59,10 +62,11 @@
         <input id="lastName" name="lastName" type="text" placeholder="Last Name" value="<?php getInputValue('lastName'); ?>" required />
       </p>
       <p>
-        <p><?php
-          echo $account->getError(Constants::$emailsDoNotMatch);
-          echo $account->getError(Constants::$emailInvalid);
-        ?></p>
+        <p>
+          <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
+          <?php echo $account->getError(Constants::$emailInvalid); ?>
+          <?php echo $account->getError(Constants::$emailTaken); ?>
+        </p>
         <label for="email">Email</label>
         <input id="email" name="email" type="email" placeholder="Email" value="<?php getInputValue('email'); ?>" required />
       </p>
@@ -71,11 +75,11 @@
         <input id="email2" name="email2" type="email" placeholder="Confirm Email" value="<?php getInputValue('email2'); ?>" required />
       </p>
       <p>
-        <p><?php
-          echo $account->getError(Constants::$passwordsDoNotMatch);
-          echo $account->getError(Constants::$passwordAlphaNumeric);
-          echo $account->getError(Constants::$passwordsCharacters);
-        ?></p>
+        <p>
+          <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
+          <?php echo $account->getError(Constants::$passwordAlphaNumeric); ?>
+          <?php echo $account->getError(Constants::$passwordsCharacters); ?>
+        </p>
         <label for="password">Password</label>
         <input id="password" name="password" type="password" required />
       </p>
